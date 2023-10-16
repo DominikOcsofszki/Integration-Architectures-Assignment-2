@@ -11,3 +11,11 @@
   mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=task -DinteractiveMode=false -DartifactId=app      
 - Make jar executable:
   Add in pom.xml: <mainClass>task.App</mainClass>
+- alias startMongo="brew services start mongodb/brew/mongodb-community"
+- Change port: (Before http://dominik.local:27017 == http://localhost:27017)
+- - edit: /opt/homebrew/etc/mongod.conf Add port:1993 in net:   
+```
+  net:
+    port: 1993   
+    ```
+

@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="DE"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/21/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/surefire/surefirebooter-20231016104106007_3.jar /Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/surefire 2023-10-16T10-41-05_963-jvmRun1 surefire-20231016104106007_1tmp surefire_0-20231016104106007_2tmp"/>
+    <property name="sun.java.command" value="/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/surefire/surefirebooter-20231016105108341_3.jar /Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/surefire 2023-10-16T10-51-08_295-jvmRun1 surefire-20231016105108341_1tmp surefire_0-20231016105108341_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/test-classes:/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/classes:/Users/dominikocsofszki/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/dominikocsofszki/.m2/repository/org/mongodb/mongodb-driver-legacy/4.1.0/mongodb-driver-legacy-4.1.0.jar:/Users/dominikocsofszki/.m2/repository/org/mongodb/bson/4.1.0/bson-4.1.0.jar:/Users/dominikocsofszki/.m2/repository/org/mongodb/mongodb-driver-core/4.1.0/mongodb-driver-core-4.1.0.jar:/Users/dominikocsofszki/.m2/repository/org/mongodb/mongodb-driver-sync/4.1.0/mongodb-driver-sync-4.1.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -28,7 +28,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/surefire/surefirebooter-20231016104106007_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/surefire/surefirebooter-20231016105108341_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21"/>
     <property name="user.name" value="dominikocsofszki"/>
