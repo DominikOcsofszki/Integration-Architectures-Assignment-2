@@ -1,3 +1,8 @@
+package task;
+
+
+
+
 import static com.mongodb.client.model.Filters.eq;
 
 import org.bson.Document;
@@ -8,10 +13,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 public class MongoDB {
-    public static void main( String[] args ) {
+    public static void main() {
 
         // Replace the placeholder with your MongoDB deployment's connection string
-        String uri = "localhost:27017";
+        String uri = "localhost:1993";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("sample_mflix");

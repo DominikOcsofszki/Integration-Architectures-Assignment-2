@@ -1,6 +1,7 @@
-package org.hbrs.ia.contract;
+package task;
+// package org.hbrs.ia.contract;
 
-import java.util.List;
+// import java.util.List;
 
 public interface ManagePersonal {
 
