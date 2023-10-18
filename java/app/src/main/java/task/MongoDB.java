@@ -17,7 +17,7 @@ public class MongoDB {
 
         // Replace the placeholder with your MongoDB deployment's connection string
         // String uri = "localhost:1993";
-        String uri = "mongodb://localhost:1993";
+        String uri = "mongodb://localhost:27017";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("db_task1");
