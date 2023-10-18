@@ -18,4 +18,5 @@
   net:
     port: 1993   
     ```
-
+- run mvn java
+  `mvn package && mvn exec:java` 

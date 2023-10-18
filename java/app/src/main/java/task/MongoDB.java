@@ -16,13 +16,15 @@ public class MongoDB {
     public static void main() {
 
         // Replace the placeholder with your MongoDB deployment's connection string
-        String uri = "localhost:1993";
+        // String uri = "localhost:1993";
+        String uri = "mongodb://localhost:1993";
 
         try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("sample_mflix");
-            MongoCollection<Document> collection = database.getCollection("movies");
+            MongoDatabase database = mongoClient.getDatabase("db_task1");
+            MongoCollection<Document> collection = database.getCollection("user");
 
-            Document doc = collection.find(eq("title", "Back to the Future")).first();
+            System.out.println(collection.find());
+            Document doc = collection.find(eq("user", "Dominik")).first();
             if (doc != null) {
                 System.out.println(doc.toJson());
             } else {
