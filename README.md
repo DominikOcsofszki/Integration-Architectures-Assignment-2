@@ -17,3 +17,5 @@
 - alias startMongo=```"brew services start mongodb/brew/mongodb-community"```
 - Port can be changed added inside: `/opt/homebrew/etc/mongod.conf`
 # Ignore until here if git cloned
+
+# Node/Api is missing .env file, please add missing env vars into .env 
