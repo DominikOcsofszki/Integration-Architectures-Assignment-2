@@ -1,3 +1,9 @@
-task/ManagePersonal.class
-task/MongoDB.class
+task/SocialPerfomanceRecord.class
+task/SocialAttribute.class
 task/App.class
+task/OrderEvaluation.class
+task/Record.class
+task/SalesMan.class
+task/MongoDB.class
+task/ManagePersonal.class
+task/Order.class

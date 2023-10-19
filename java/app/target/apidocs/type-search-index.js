@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"task","l":"App"},{"p":"task","l":"ManagePersonal"},{"p":"task","l":"MongoDB"},{"p":"task","l":"Order"},{"p":"task","l":"OrderEvaluation"},{"p":"task","l":"Record"},{"p":"task","l":"SalesMan"},{"p":"task","l":"SocialAttribute"},{"p":"task","l":"SocialPerfomanceRecord"}];updateSearchResults();
