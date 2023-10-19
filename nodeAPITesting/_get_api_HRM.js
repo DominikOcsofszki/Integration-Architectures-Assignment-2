@@ -2,15 +2,16 @@
 require('dotenv').config();
 
 
-
+// HRM
 
 async function getToken() { 
 
+	const baseUrl = `${process.env.BASE_URL_HRM}`;
 
 
 	const axios = require('axios');
 	const qs = require('querystring');
-	const baseUrl = `${process.env.BASE_URL}`;
+
 	let accessToken = null;
 	const body = qs.stringify({ client_id: 'api_oauth_id', client_secret: 'oauth_secret', 
 		grant_type: 'password', username: `${process.env.USER_WEBSITE}`, password: `${process.env.PASSWORD}` });

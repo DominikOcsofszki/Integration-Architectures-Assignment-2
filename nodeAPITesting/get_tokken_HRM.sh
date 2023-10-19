@@ -10,4 +10,4 @@ cat .env2 > .env
 
 echo -n "ACCESS_TOKEN=" >> .env
 
-node get_api_tokken.js >> .env
+node get_api_tokken_HRM.js >> .env

@@ -11,7 +11,7 @@ function printAll(file) {
 async function run()  {
 	const axios = require('axios');
 
-	const baseUrl = '${process.env.BASE_URL}';
+	const baseUrl = '${process.env.BASE_URL_CRX}';
 	const credentials = {
 		username: 'guest', 
 		password: 'guest', 
