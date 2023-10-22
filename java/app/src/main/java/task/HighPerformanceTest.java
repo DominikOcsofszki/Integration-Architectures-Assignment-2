@@ -1,12 +1,13 @@
-//package test;
+//package task;
 //
 //import com.mongodb.MongoClient;
 //import com.mongodb.client.MongoCollection;
 //import com.mongodb.client.MongoDatabase;
-//import de.hbrs.ia.model.SalesMan;
+////import de.hbrs.ia.model.SalesMan;
 //import org.bson.Document;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
+//import task.SalesMan;
 //
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 //
