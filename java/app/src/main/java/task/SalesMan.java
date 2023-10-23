@@ -2,8 +2,8 @@ package task;
 
 public class SalesMan {
 
-    final String vorname;
-    final String nachname;
+    final String firstname;
+    final String lastname;
 //    static int idCount = 0;
     final int id;
     final String department;
@@ -11,17 +11,27 @@ public class SalesMan {
 
 
     public SalesMan(String vorname, String nachname, int id) {
-        this.vorname = vorname;
-        this.nachname = nachname;
+        this.firstname = vorname;
+        this.lastname = nachname;
         this.department = "no info";
         this.id = id;
 //        this.id = this.idCount++;
     }
     public SalesMan(String vorname, String nachname, int id, String department) {
-        this.vorname = vorname;
-        this.nachname = nachname;
+        this.firstname = vorname;
+        this.lastname = nachname;
         this.department = department;
         this.id = id;
 //        this.id = this.idCount++;
+    }
+
+    @Override
+    public String toString() {
+        return "SalesMan{" +
+                "vorname='" + firstname + '\'' +
+                ", nachname='" + lastname + '\'' +
+                ", id=" + id +
+                ", department='" + department + '\'' +
+                '}';
     }
 }

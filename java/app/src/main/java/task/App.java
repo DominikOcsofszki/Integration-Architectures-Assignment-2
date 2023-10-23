@@ -21,13 +21,7 @@ public class App
         managePersonal.dropAllSalesMan();
 
         managePersonal.createSalesMan(salesMan);
-//        System.out.println("salesMan = " + salesMan);
-//        System.out.println(salesMan.nachname);
-//        System.out.println(salesMan.vorname);
-//        System.out.println(salesMan.id);
-//        managePersonal.readSalesMan(0);
-        System.out.println(new Gson().toJson(salesMan));
-
-
+        System.out.println("-------");
+        managePersonal.readSalesMan(90133);
     }
 }

@@ -40,12 +40,13 @@ public class ManagePersonalImpl implements ManagePersonal {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
             Document document = new Document();//        document.append("firstname" , "Sascha");
-            document.append("firstname", record.vorname);//        document.append("lastname" , "Alda");
-            document.append("lastname", record.nachname);//        document.append("id" , 90133);
+            document.append("firstname", record.firstname);//        document.append("lastname" , "Alda");
+            document.append("lastname", record.lastname);//        document.append("id" , 90133);
             document.append("id", record.id);
             document.append("_id", record.id); //ToDo with this we can have only one ID per Person
             System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
             salesmen.insertOne(document);
+
         }
     }
     public void dropAllSalesMan() {
@@ -75,9 +76,12 @@ public class ManagePersonalImpl implements ManagePersonal {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
             Document document = salesmen.find().first();
-            Gson gson = new Gson(); // Or use new GsonBuilder().create();
-//            MyType target2 = gson.fromJson(String.valueOf(document), SalesMan.class); // deserializes json
-            return null;
+            Gson gson = new Gson(); //
+            System.out.println("document = " + document);
+            System.out.println("document.toJson() = " + document.toJson());
+            SalesMan salesMan = gson.fromJson(document.toJson(), SalesMan.class); // deserializes json
+            System.out.println("read SalesMan sid:"+sid+": " + salesMan.toString());
+            return salesMan;
         }
 //    }public SalesMan readSalesMan(int sid) {
 //        return dbSingleton.getDb_task1().getCollection("SalesMan").find().first().toString();
