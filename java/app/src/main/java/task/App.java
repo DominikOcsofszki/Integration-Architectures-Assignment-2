@@ -23,5 +23,8 @@ public class App
         managePersonal.createSalesMan(salesMan);
         System.out.println("-------");
         managePersonal.readSalesMan(90133);
+        System.out.println("---perfRecord:----");
+        managePersonal.addPerformanceRecord(evaluationRecord, 90133);
+
     }
 }

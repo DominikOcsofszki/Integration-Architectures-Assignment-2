@@ -65,10 +65,12 @@ public class ManagePersonalImpl implements ManagePersonal {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("PerformanceRecord");
             Document document = new Document();
+            Gson gson = new Gson(); //
             document.append("sid", sid);
-            document.append("socialPerfomanceRecord", record.socialPerfomanceRecord); //ToDo PerformanceRecord or Record?
+            document.append("socialPerfomanceRecord", gson.toJson(record.socialPerfomanceRecord)); //ToDo PerformanceRecord or Record?
             System.out.println("document = " + document);
             salesmen.insertOne(document);
+
         }
     }
 
