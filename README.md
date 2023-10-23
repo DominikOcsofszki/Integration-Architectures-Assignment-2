@@ -11,5 +11,5 @@
 
 Run this in the java/app folder
 `mvn package`
-`mvn exec:java'
+`mvn exec:java`
 
