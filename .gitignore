@@ -11,3 +11,5 @@
 /dataSources/
 /dataSources.local.xml
 nodeAPITesting/node_modules/
+java/app/.classpath
+java/app/.project
