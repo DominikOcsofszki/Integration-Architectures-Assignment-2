@@ -7,7 +7,6 @@ package task;
 public class App
 {
     public static void main( String[] args )   {
-        System.out.println( "Hello World!" );
         ManagePersonalImpl managePersonal = new ManagePersonalImpl();
 
         SalesMan salesMan = new SalesMan("Dominik", "Ocsofszki", "IT");
@@ -17,6 +16,10 @@ public class App
         final OrderEvaluation orderEvaluation = new OrderEvaluation(order, 1_000);
         final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
         managePersonal.createSalesMan(salesMan);
+        System.out.println("salesMan = " + salesMan);
+        System.out.println(salesMan.nachname);
+        System.out.println(salesMan.vorname);
+        System.out.println(salesMan.id);
 
     }
 }

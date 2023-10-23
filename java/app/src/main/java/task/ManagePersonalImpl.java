@@ -1,8 +1,6 @@
 package task;
 
 import com.mongodb.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
@@ -36,6 +34,8 @@ public class ManagePersonalImpl implements ManagePersonal {
 
     @Override
     public void createSalesMan(SalesMan record) {
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
         Document document = new Document();
 //        document.append("firstname" , "Sascha");
         document.append("firstname" , record.vorname);
@@ -43,9 +43,10 @@ public class ManagePersonalImpl implements ManagePersonal {
         document.append("lastname" , record.nachname);
 //        document.append("id" , 90133);
         document.append("id" , record.id);
-
-        dbSingleton.getSalesmen().insertOne(document);
-    }
+        System.out.println("document = " + document);
+//        db_task1.getCollection("sale")(document);
+        dbSingleton.getDb_task1().getCollection("name").insertOne(document);
+    }}
 
     @Override
     public void addPerformanceReord(EvaluationRecord record, int sid) {
@@ -54,7 +55,7 @@ public class ManagePersonalImpl implements ManagePersonal {
 
     @Override
     public SalesMan readSalesMan(int sid) {
-        return null;
+        return dbSingleton.getDb_task1().getCollection("name").find().first();
     }
 
     @Override
