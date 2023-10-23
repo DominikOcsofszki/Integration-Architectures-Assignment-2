@@ -1,6 +1,7 @@
 package task;
 
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
@@ -30,23 +31,22 @@ public class ManagePersonalImpl implements ManagePersonal {
 ////////////////////////////////////////
 //    private MongoCollection<Document> salesmen;
 
-    DBSingleton dbSingleton = DBSingleton.getInstance();
+//    DBSingleton dbSingleton = DBSingleton.getInstance();
 
     @Override
     public void createSalesMan(SalesMan record) {
         try (MongoClient client = new MongoClient("localhost", 27017);) {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
-        Document document = new Document();
-//        document.append("firstname" , "Sascha");
-        document.append("firstname" , record.vorname);
-//        document.append("lastname" , "Alda");
-        document.append("lastname" , record.nachname);
-//        document.append("id" , 90133);
-        document.append("id" , record.id);
-        System.out.println("document = " + document);
-//        db_task1.getCollection("sale")(document);
-        dbSingleton.getDb_task1().getCollection("name").insertOne(document);
-    }}
+            MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
+            Document document = new Document();//        document.append("firstname" , "Sascha");
+            document.append("firstname", record.vorname);//        document.append("lastname" , "Alda");
+            document.append("lastname", record.nachname);//        document.append("id" , 90133);
+            document.append("id", record.id);
+//            document.append("_id", record.id); //ToDo with this we can have only one ID per Person
+            System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
+            salesmen.insertOne(document);
+        }
+    }
 
     @Override
     public void addPerformanceReord(EvaluationRecord record, int sid) {
@@ -55,9 +55,17 @@ public class ManagePersonalImpl implements ManagePersonal {
 
     @Override
     public SalesMan readSalesMan(int sid) {
-        return dbSingleton.getDb_task1().getCollection("name").find().first();
-    }
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
+//            System.out.println("salesmen.find().first().toString() = " + salesmen.find().first().toString());
 
+            return null;
+        }
+//    }public SalesMan readSalesMan(int sid) {
+//        return dbSingleton.getDb_task1().getCollection("SalesMan").find().first().toString();
+//    }
+    }
     @Override
     public List<SalesMan> querySalesMan(String attribute, String key) {
         return null;

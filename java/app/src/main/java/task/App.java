@@ -9,17 +9,18 @@ public class App
     public static void main( String[] args )   {
         ManagePersonalImpl managePersonal = new ManagePersonalImpl();
 
-        SalesMan salesMan = new SalesMan("Dominik", "Ocsofszki", "IT");
+        SalesMan salesMan = new SalesMan("Dominik", "Ocsofszki", 90133);
         final SocialAttribute socialAttribute = new SocialAttribute("better next time", 5, 4);
         final SocialPerfomanceRecord socialPerfomanceRecord = new SocialPerfomanceRecord(socialAttribute, 2_000);
         final Order order = new Order("HooverGo", "TKMax", "A",200,20,"last year we had 10 more sold");
         final OrderEvaluation orderEvaluation = new OrderEvaluation(order, 1_000);
         final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
         managePersonal.createSalesMan(salesMan);
-        System.out.println("salesMan = " + salesMan);
-        System.out.println(salesMan.nachname);
-        System.out.println(salesMan.vorname);
-        System.out.println(salesMan.id);
+//        System.out.println("salesMan = " + salesMan);
+//        System.out.println(salesMan.nachname);
+//        System.out.println(salesMan.vorname);
+//        System.out.println(salesMan.id);
+        managePersonal.readSalesMan(1);
 
     }
 }
