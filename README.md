@@ -8,14 +8,8 @@
 
 
 ### Working with maven: 
-- Generate new Maven project:
-```
-  mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=task -DinteractiveMode=false -DartifactId=app
-```
-- Make jar executable:
-  Add in pom.xml: ```<mainClass>task.App</mainClass>```
-- alias startMongo=```"brew services start mongodb/brew/mongodb-community"```
-- Port can be changed added inside: `/opt/homebrew/etc/mongod.conf`
-# Ignore until here if git cloned
 
-# Node/Api is missing .env file, please add missing env vars into .env 
+Run this in the java/app folder
+`mvn package`
+`mvn exec:java'
+
