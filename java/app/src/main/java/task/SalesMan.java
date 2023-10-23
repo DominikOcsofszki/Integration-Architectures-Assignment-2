@@ -9,6 +9,7 @@ public class SalesMan {
     final String department;
 
 
+
     public SalesMan(String vorname, String nachname, int id) {
         this.vorname = vorname;
         this.nachname = nachname;

@@ -1,5 +1,8 @@
 package task;
 // import task.MongoDB;
+
+import com.google.gson.Gson;
+
 /**
  * Hello world!
  *
@@ -15,12 +18,16 @@ public class App
         final Order order = new Order("HooverGo", "TKMax", "A",200,20,"last year we had 10 more sold");
         final OrderEvaluation orderEvaluation = new OrderEvaluation(order, 1_000);
         final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
+        managePersonal.dropAllSalesMan();
+
         managePersonal.createSalesMan(salesMan);
 //        System.out.println("salesMan = " + salesMan);
 //        System.out.println(salesMan.nachname);
 //        System.out.println(salesMan.vorname);
 //        System.out.println(salesMan.id);
-        managePersonal.readSalesMan(1);
+//        managePersonal.readSalesMan(0);
+        System.out.println(new Gson().toJson(salesMan));
+
 
     }
 }

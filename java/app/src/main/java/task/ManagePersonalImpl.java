@@ -1,5 +1,6 @@
 package task;
 
+import com.google.gson.Gson;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -42,15 +43,30 @@ public class ManagePersonalImpl implements ManagePersonal {
             document.append("firstname", record.vorname);//        document.append("lastname" , "Alda");
             document.append("lastname", record.nachname);//        document.append("id" , 90133);
             document.append("id", record.id);
-//            document.append("_id", record.id); //ToDo with this we can have only one ID per Person
+            document.append("_id", record.id); //ToDo with this we can have only one ID per Person
             System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
             salesmen.insertOne(document);
         }
     }
+    public void dropAllSalesMan() {
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
+            salesmen.drop();
+        }
+    }
 
     @Override
-    public void addPerformanceReord(EvaluationRecord record, int sid) {
-
+    public void addPerformanceRecord(EvaluationRecord record, int sid) {
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("PerformanceRecord");
+            Document document = new Document();
+            document.append("sid", sid);
+            document.append("socialPerfomanceRecord", record.socialPerfomanceRecord); //ToDo PerformanceRecord or Record?
+            System.out.println("document = " + document);
+            salesmen.insertOne(document);
+        }
     }
 
     @Override
@@ -58,8 +74,9 @@ public class ManagePersonalImpl implements ManagePersonal {
         try (MongoClient client = new MongoClient("localhost", 27017);) {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
-//            System.out.println("salesmen.find().first().toString() = " + salesmen.find().first().toString());
-
+            Document document = salesmen.find().first();
+            Gson gson = new Gson(); // Or use new GsonBuilder().create();
+//            MyType target2 = gson.fromJson(String.valueOf(document), SalesMan.class); // deserializes json
             return null;
         }
 //    }public SalesMan readSalesMan(int sid) {
@@ -73,6 +90,7 @@ public class ManagePersonalImpl implements ManagePersonal {
 
     @Override
     public EvaluationRecord readEvaluationRecords(int sid) {
+
         return null;
     }
 }
