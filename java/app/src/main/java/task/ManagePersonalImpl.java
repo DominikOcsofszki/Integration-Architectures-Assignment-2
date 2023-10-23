@@ -6,8 +6,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.util.Collections;
 import java.util.List;
 
+import static com.mongodb.client.model.Filters.eq;
 public class ManagePersonalImpl implements ManagePersonal {
 
 //    private MongoClient client;
@@ -75,7 +77,9 @@ public class ManagePersonalImpl implements ManagePersonal {
         try (MongoClient client = new MongoClient("localhost", 27017);) {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
-            Document document = salesmen.find().first();
+            String query = "{id: "+sid+"}";
+            Document document =  salesmen.find(eq("id",sid)).first();
+//            Document document = salesmen.find().first();
             Gson gson = new Gson(); //
             System.out.println("document = " + document);
             System.out.println("document.toJson() = " + document.toJson());
