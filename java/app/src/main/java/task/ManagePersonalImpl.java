@@ -2,39 +2,19 @@ package task;
 
 import com.google.gson.Gson;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
+
 public class ManagePersonalImpl implements ManagePersonal {
-
-//    private MongoClient client;
-//    private MongoDatabase supermongo;
-//    private MongoCollection<Document> salesmen;
-
-//    client = new MongoClient("localhost", 27017);
-//    // Get database 'highperformance' (creates one if not available)
-//    supermongo = client.getDatabase("highperformance");
-//    // Get Collection 'salesmen' (creates one if not available)
-//    salesmen =
-
-
-/*    private MongoCollection<Document> useDB(){
-        MongoCollection<Document> salesmen;
-        try (MongoClient client = new MongoClient("localhost", 27017);) {
-            MongoDatabase db_task1 = client.getDatabase("db_task1");
-            salesmen = db_task1.getCollection("salesmen");
-            return salesmen;
-        }
-    }*/
-////////////////////////////////////////
-//    private MongoCollection<Document> salesmen;
-
-//    DBSingleton dbSingleton = DBSingleton.getInstance();
 
     @Override
     public void createSalesMan(SalesMan record) {
@@ -51,7 +31,8 @@ public class ManagePersonalImpl implements ManagePersonal {
 
         }
     }
-    public void dropAllSalesMan() {
+
+    public void _dropAllSalesMan() {
         try (MongoClient client = new MongoClient("localhost", 27017);) {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
@@ -79,28 +60,47 @@ public class ManagePersonalImpl implements ManagePersonal {
         try (MongoClient client = new MongoClient("localhost", 27017);) {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
             MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
-            String query = "{id: "+sid+"}";
-            Document document =  salesmen.find(eq("id",sid)).first();
+            String query = "{id: " + sid + "}";
+            Document document = salesmen.find(eq("id", sid)).first(); //ToDo Only first since we have only one ID per Person?
 //            Document document = salesmen.find().first();
             Gson gson = new Gson(); //
             System.out.println("document = " + document);
             System.out.println("document.toJson() = " + document.toJson());
             SalesMan salesMan = gson.fromJson(document.toJson(), SalesMan.class); // deserializes json
-            System.out.println("read SalesMan sid:"+sid+": " + salesMan.toString());
+            System.out.println("read SalesMan sid:" + sid + ": " + salesMan.toString());
             return salesMan;
         }
-//    }public SalesMan readSalesMan(int sid) {
-//        return dbSingleton.getDb_task1().getCollection("SalesMan").find().first().toString();
-//    }
     }
+
     @Override
     public List<SalesMan> querySalesMan(String attribute, String key) {
-        return null;
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("EvaluationRecord");
+            FindIterable<Document> documents = salesmen.find(eq(key, attribute));
+            List<SalesMan> listSalesMan = new ArrayList<>();
+            Gson gson = new Gson(); //
+            System.out.println("document = " + documents);
+            for (Document document : documents) {
+                System.out.println("document = " + document);
+                SalesMan salesMan = gson.fromJson(document.toJson(), SalesMan.class);
+                listSalesMan.add(salesMan);
+            }
+            return listSalesMan;
+        }
     }
+
 
     @Override
     public EvaluationRecord readEvaluationRecords(int sid) {
-
-        return null;
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("EvaluationRecord");
+            Document document = salesmen.find(eq("id", sid)).first(); //ToDo Only
+            Gson gson = new Gson(); //
+            System.out.println("document = " + document);
+            EvaluationRecord evaluationRecord = gson.fromJson(document.toJson(), EvaluationRecord.class);
+            return evaluationRecord;
+        }
     }
 }
