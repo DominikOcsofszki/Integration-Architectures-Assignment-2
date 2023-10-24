@@ -27,3 +27,5 @@
     
 - run mvn java
   `mvn package && mvn exec:java` 
+
+ [[BonusCompuationSheet.pdf](pdf%2FBonusCompuationSheet.pdf)]]

@@ -159,7 +159,7 @@ public class ManagePersonalImpl implements ManagePersonal, ManagePersonalMissing
 
     @Override
     public void updateEvaluationRecord(EvaluationRecord evaluationRecord) {
-
+        //ToDo
     }
 
     @Override
@@ -177,6 +177,27 @@ public class ManagePersonalImpl implements ManagePersonal, ManagePersonalMissing
 
 
             evaluationRecordCollection.insertOne(document);
+        }
+    }
+
+    @Override
+    public void updateSocialPerfomanceRecord(int sid, SocialPerfomanceRecord updatedRecord) {
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> EvaluationRecordColleciton = db_task1.getCollection("EvaluationRecord");
+            EvaluationRecordColleciton.deleteOne(eq("id", sid));
+            EvaluationRecordColleciton.insertOne(new Document("id", sid).append("socialPerfomanceRecord", updatedRecord));
+            out.println(EvaluationRecordColleciton.find(eq("id", sid)).first());
+        }
+    }
+
+    @Override
+    public void deleteSocialPerfomanceRecord(int sid) {
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> saleManCollection = db_task1.getCollection("EvaluationRecord");this.deleteSalesMan(sid);
+            saleManCollection.deleteOne(eq("id", sid));
+
         }
     }
 }

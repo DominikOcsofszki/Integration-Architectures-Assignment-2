@@ -12,8 +12,11 @@ import java.util.ArrayList;
 public class App
 {
     public static void main( String[] args )   {
-
-        if(false) {
+        boolean runUI = false;
+        if(runUI) {
+            ManagePersonalUI managePersonalUI = new ManagePersonalUI(new ManagePersonalImpl());
+            managePersonalUI.start();
+        } else {
             ManagePersonalImpl managePersonal = new ManagePersonalImpl();
 
             SalesMan salesMan = new SalesMan("Dominik", "Ocsofszki", 90133);
@@ -42,9 +45,6 @@ public class App
             System.out.println("after querry:");
             managePersonal.createEvaluationRecord(evaluationRecord);    //ToDo: this is not working
 //        managePersonal.readEvaluationRecords(90133);            //ToDo: Or this not working
-        } else {
-            ManagePersonalUI managePersonalUI = new ManagePersonalUI(new ManagePersonalImpl());
-            managePersonalUI.start();
         }
 
     }

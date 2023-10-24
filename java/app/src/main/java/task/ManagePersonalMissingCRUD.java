@@ -12,6 +12,9 @@ public interface ManagePersonalMissingCRUD {
 
      public void createEvaluationRecord( EvaluationRecord evaluationRecord );
 
+     public void updateSocialPerfomanceRecord( int sid, SocialPerfomanceRecord updatedRecord );
+
+     public void deleteSocialPerfomanceRecord( int sid );
 
 
 }

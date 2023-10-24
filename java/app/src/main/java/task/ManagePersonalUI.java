@@ -16,10 +16,10 @@ public class ManagePersonalUI {
         while (true) {
             System.out.println("Waehlen Sie eine Aktion:");
             System.out.println("1. SalesMan erstellen");
-            System.out.println("2. Leistungsbericht hinzufuegen");
+            System.out.println("2. PerformanceRecord hinzufuegen");
             System.out.println("3. SalesMan lesen");
             System.out.println("4. SalesMan suchen");
-            System.out.println("5. Leistungsbericht lesen");
+            System.out.println("5. PerformanceRecord lesen");
             System.out.println("0. Beenden");
 
             int choice = scanner.nextInt();
