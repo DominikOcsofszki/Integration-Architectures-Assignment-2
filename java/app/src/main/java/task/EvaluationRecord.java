@@ -6,13 +6,15 @@ public class EvaluationRecord {
     final int salesManId;
     final int totalBonus;
     final int yearOfOrder;
+    final int evaluationRecordID;
 
-    public EvaluationRecord(SocialPerfomanceRecord socialPerfomanceRecord, OrderEvaluation orderEvaluation, int salesManId, int totalBonus, int yearOfOrder) {
+    public EvaluationRecord(SocialPerfomanceRecord socialPerfomanceRecord, OrderEvaluation orderEvaluation, int salesManId, int totalBonus, int yearOfOrder, int evaluationRecordID) {
         this.socialPerfomanceRecord = socialPerfomanceRecord;
         this.orderEvaluation = orderEvaluation;
         this.salesManId = salesManId;
         this.totalBonus = totalBonus;
         this.yearOfOrder = yearOfOrder;
+        this.evaluationRecordID = evaluationRecordID;
     }
 
 

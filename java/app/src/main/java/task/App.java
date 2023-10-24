@@ -27,7 +27,7 @@ public class App
         orders.add(order1);
         orders.add(order2);
         final OrderEvaluation orderEvaluation = new OrderEvaluation(orders, 1_000);
-        final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
+        final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023,0);
         managePersonal._dropAllSalesMan();
 
         managePersonal.createSalesMan(salesMan);

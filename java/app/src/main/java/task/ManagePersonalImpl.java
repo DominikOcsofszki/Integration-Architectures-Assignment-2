@@ -14,7 +14,7 @@ import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 
-public class ManagePersonalImpl implements ManagePersonal {
+public class ManagePersonalImpl implements ManagePersonal, ManagePersonalMissingCRUD {
 
     @Override
     public void createSalesMan(SalesMan record) {
@@ -113,6 +113,7 @@ public class ManagePersonalImpl implements ManagePersonal {
     }
 
     //--------------------Task 2--------------------
+    @Override
     public void deleteSalesMan(int sid) {
         try (MongoClient client = new MongoClient("localhost", 27017);) {
             MongoDatabase db_task1 = client.getDatabase("db_task1");
@@ -132,5 +133,6 @@ public class ManagePersonalImpl implements ManagePersonal {
 //            return salesMan;
         }
     }
+
 
 }
