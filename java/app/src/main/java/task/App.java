@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class App
 {
     public static void main( String[] args )   {
-        boolean runUI = false;
+        boolean runUI = true;
         if(runUI) {
             ManagePersonalUI managePersonalUI = new ManagePersonalUI(new ManagePersonalImpl());
             managePersonalUI.start();
