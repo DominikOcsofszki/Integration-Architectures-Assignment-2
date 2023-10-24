@@ -1,11 +1,13 @@
 package task;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderEvaluation {
 
-    final Order order;
+    final List<Order> order;
     final int bonusSum;
 
-    public OrderEvaluation(Order order, int bonusSum) {
+    public OrderEvaluation(List<Order> order, int bonusSum) {
         this.order = order;
         this.bonusSum = bonusSum;
     }

@@ -1,11 +1,13 @@
 package task;
 
+import java.util.List;
+
 public class SocialPerfomanceRecord {
-    final SocialAttribute socialAttribute;
+    final List<SocialAttribute> socialAttributes;
     final int bonusSumB;
 
-    public SocialPerfomanceRecord(SocialAttribute socialAttribute, int bonusSumB) {
-        this.socialAttribute = socialAttribute;
+    public SocialPerfomanceRecord(List<SocialAttribute> socialAttributes, int bonusSumB) {
+        this.socialAttributes = socialAttributes;
         this.bonusSumB = bonusSumB;
     }
 }
