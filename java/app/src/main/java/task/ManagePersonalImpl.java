@@ -26,7 +26,7 @@ public class ManagePersonalImpl implements ManagePersonal {
             document.append("lastname", record.lastname);//        document.append("id" , 90133);
             document.append("id", record.id);
             document.append("_id", record.id); //ToDo with this we can have only one ID per Person
-            System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
+//            System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
             salesmen.insertOne(document);
 
         }
@@ -64,10 +64,18 @@ public class ManagePersonalImpl implements ManagePersonal {
             Document document = salesmen.find(eq("id", sid)).first(); //ToDo Only first since we have only one ID per Person?
 //            Document document = salesmen.find().first();
             Gson gson = new Gson(); //
-            System.out.println("document = " + document);
-            System.out.println("document.toJson() = " + document.toJson());
-            SalesMan salesMan = gson.fromJson(document.toJson(), SalesMan.class); // deserializes json
-            System.out.println("read SalesMan sid:" + sid + ": " + salesMan.toString());
+//            System.out.println("document = " + document);
+//            System.out.println("document.toJson() = " + document.toJson());
+            SalesMan salesMan;
+            try {
+                salesMan = gson.fromJson(document.toJson(), SalesMan.class); // deserializes json
+            } catch (Exception e) {
+                salesMan = null;
+//                System.out.println("document = " + document);
+//                System.out.println("document.toJson() = " + document.toJson());
+//                System.out.println("e = " + e);
+            }
+//            System.out.println("read SalesMan sid:" + sid + ": " + salesMan.toString());
             return salesMan;
         }
     }
@@ -103,4 +111,26 @@ public class ManagePersonalImpl implements ManagePersonal {
             return evaluationRecord;
         }
     }
+
+    //--------------------Task 2--------------------
+    public void deleteSalesMan(int sid) {
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
+            String query = "{id: " + sid + "}";
+            System.out.println(salesmen.find(eq("id", sid)).first());
+            salesmen.deleteOne(eq("id", sid));
+            System.out.println("del one");
+            System.out.println(salesmen.find(eq("id", sid)).first());
+            System.out.println("del one");
+
+//            Gson gson = new Gson(); //
+//            System.out.println("document = " + document);
+//            System.out.println("document.toJson() = " + document.toJson());
+//            SalesMan salesMan = gson.fromJson(document.toJson(), SalesMan.class); // deserializes json
+//            System.out.println("read SalesMan sid:" + sid + ": " + salesMan.toString());
+//            return salesMan;
+        }
+    }
+
 }

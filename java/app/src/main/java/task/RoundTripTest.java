@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 
 import static com.mongodb.client.model.Filters.eq;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import java.util.ArrayList;
 
 class RoundTripTest {
@@ -50,21 +52,37 @@ class RoundTripTest {
     }
 
     @Test
-    void insertSalesMan() {
+    void roundTripTest() {
+        ManagePersonalImpl managePersonal = new ManagePersonalImpl();
 
+        SalesMan salesMan = new SalesMan("Dominik", "Ocsofszki", 90133);
+        //---------------
 
-        // READ (Finding) the stored Documnent
-        Document newDocument = this.salesmenDB.find().first();
-        System.out.println("Printing the object (JSON): " + newDocument);
-        salesMan = new SalesMan("Dominik", "Ocsofszki", 90133);
+        final SocialAttribute socialAttribute = new SocialAttribute("Leadership Competence", 4, 3, 20, "whats wrong?");
+        final SocialAttribute socialAttribute2 = new SocialAttribute("Openness to Employee", 4, 3, 20, "whats wrong?");
+        final ArrayList<SocialAttribute> socialAttributes = new ArrayList();
+        socialAttributes.add(socialAttribute);
+        socialAttributes.add(socialAttribute2);
+        final SocialPerfomanceRecord socialPerfomanceRecord = new SocialPerfomanceRecord(socialAttributes, 2_000);
+        final Order order1 = new Order("HooverGo", "Telekom AG", "A", 700, 20, "YES!");
+        final Order order2 = new Order("HooverGo", "Mayer", "B", 500, 10, "YES");
+        ArrayList<Order> orders = new ArrayList();
+        orders.add(order1);
+        orders.add(order2);
+        final OrderEvaluation orderEvaluation = new OrderEvaluation(orders, 1_000);
+        final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
+        managePersonal._dropAllSalesMan();
+        //------------
         managePersonal.createSalesMan(salesMan);
-        SalesMan docSalesMan = managePersonal.readSalesMan(90133);
+        SalesMan salesMan1 = managePersonal.readSalesMan(90133);
+        assertEquals(90133, salesMan1.id);
+        managePersonal.deleteSalesMan(90133);
+        salesMan1 = managePersonal.readSalesMan(90133);
 
-        // Assertion
-//        Integer id = (Integer) newDocument.get("id");
-        assertEquals(90133, docSalesMan.id);
-        // Deletion
-//        salesmen.drop();
+        assertNull(salesMan1);
+
+        managePersonal._dropAllSalesMan();
+
     }
 
 //    @Test

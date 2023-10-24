@@ -21,11 +21,11 @@ public class App
         socialAttributes.add(socialAttribute);
         socialAttributes.add(socialAttribute2);
         final SocialPerfomanceRecord socialPerfomanceRecord = new SocialPerfomanceRecord(socialAttributes, 2_000);
-        final Order order = new Order("HooverGo", "TKMax", "A", 200, 20, "last year we had 10 more sold");
-        final Order order2 = new Order("HooverGo", "TKMax", "A", 200, 20, "last year we had 10 more sold");
+        final Order order1 = new Order("HooverGo", "Telekom AG", "A", 700, 20, "YES!");
+        final Order order2 = new Order("HooverGo", "Mayer", "B", 500, 10, "YES");
         ArrayList<Order> orders = new ArrayList();
-        orders.add(order);
-        orders.add(order);
+        orders.add(order1);
+        orders.add(order2);
         final OrderEvaluation orderEvaluation = new OrderEvaluation(orders, 1_000);
         final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
         managePersonal._dropAllSalesMan();
