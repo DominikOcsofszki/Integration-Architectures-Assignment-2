@@ -1,1 +1,15 @@
-/Users/dominikocsofszki/TOP/Uni/IA/task1/java/app/target/
+**/.idea/
+**/.settings/
+**/target/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+nodeAPITesting/node_modules/
+java/app/.classpath
+java/app/.project

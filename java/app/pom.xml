@@ -79,11 +79,19 @@
             <!--             <version>2.1.0</version> -->
             <!--         </docletArtifact> -->
             <!--         <additionalOptions> -->
+<<<<<<< HEAD
                         <!--<additionalOption>...</additionalOption>-->
             <!--         </additionalOptions> -->
             <!--     </configuration> -->
             <!-- </plugin> -->
             <!---->
+=======
+            <!--             <!--<additionalOption>...</additionalOption>--> -->
+            <!--         </additionalOptions> -->
+            <!--     </configuration> -->
+            <!-- </plugin> -->
+
+>>>>>>> 7f97fdbfddd3aff77f8f06d627e187d75da0060d
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
