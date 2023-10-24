@@ -10,16 +10,16 @@ public class SalesMan {
 
 
 
-    public SalesMan(String vorname, String nachname, int id) {
-        this.firstname = vorname;
-        this.lastname = nachname;
+    public SalesMan(String firstname, String lastname, int id) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.department = "no info";
         this.id = id;
 //        this.id = this.idCount++;
     }
-    public SalesMan(String vorname, String nachname, int id, String department) {
-        this.firstname = vorname;
-        this.lastname = nachname;
+    public SalesMan(String firstname, String lastname, int id, String department) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.department = department;
         this.id = id;
 //        this.id = this.idCount++;

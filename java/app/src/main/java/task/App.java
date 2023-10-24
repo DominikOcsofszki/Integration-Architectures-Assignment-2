@@ -35,6 +35,11 @@ public class App
         managePersonal.readSalesMan(90133);
         System.out.println("---perfRecord:----");
         managePersonal.addPerformanceRecord(evaluationRecord, 90133);
+        System.out.println("querry:");
+        System.out.println(managePersonal.querySalesMan( "Dominik","firstname"));
+        System.out.println("after querry:");
+        managePersonal.createEvaluationRecord(evaluationRecord);    //ToDo: this is not working
+//        managePersonal.readEvaluationRecords(90133);            //ToDo: Or this not working
 
     }
 }

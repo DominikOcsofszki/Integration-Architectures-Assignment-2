@@ -59,40 +59,6 @@
         <plugins>
 
 
-            <!-- <plugin> -->
-            <!--     <groupId>org.apache.maven.plugins</groupId> -->
-            <!--     <artifactId>maven-javadoc-plugin</artifactId> -->
-            <!--     <version>3.0.1</version> -->
-            <!--     <executions> -->
-            <!--         <execution> -->
-            <!--             <id>attach-javadocs</id> -->
-            <!--             <goals> -->
-            <!--                 <goal>jar</goal> -->
-            <!--             </goals> -->
-            <!--         </execution> -->
-            <!--     </executions> -->
-            <!--     <configuration> -->
-            <!--         <doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet> -->
-            <!--         <docletArtifact> -->
-            <!--             <groupId>nl.talsmasoftware</groupId> -->
-            <!--             <artifactId>umldoclet</artifactId> -->
-            <!--             <version>2.1.0</version> -->
-            <!--         </docletArtifact> -->
-            <!--         <additionalOptions> -->
-<<<<<<< HEAD
-                        <!--<additionalOption>...</additionalOption>-->
-            <!--         </additionalOptions> -->
-            <!--     </configuration> -->
-            <!-- </plugin> -->
-            <!---->
-=======
-            <!--             <!--<additionalOption>...</additionalOption>--> -->
-            <!--         </additionalOptions> -->
-            <!--     </configuration> -->
-            <!-- </plugin> -->
-
->>>>>>> 7f97fdbfddd3aff77f8f06d627e187d75da0060d
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>

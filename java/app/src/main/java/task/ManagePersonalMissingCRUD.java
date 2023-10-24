@@ -6,9 +6,11 @@ package task;
 public interface ManagePersonalMissingCRUD {
 
      public void deleteSalesMan( int sid );
-     public void deleteEvaluationRecords( int sid ,int year);
+     public void deleteEvaluationRecords( int sid);
      public void updateSalesMan( SalesMan salesMan , int sid);
-     public void updateEvaluationRecord( SalesMan record );
+     public void updateEvaluationRecord( EvaluationRecord evaluationRecord );
+
+     public void createEvaluationRecord( EvaluationRecord evaluationRecord );
 
 
 
