@@ -19,18 +19,18 @@ public class ManagePersonalImpl implements ManagePersonal {
     @Override
     public void createSalesMan(SalesMan record) {
         System.out.println(record.firstname +  record.lastname + record.id);
-////        try (MongoClient client = new MongoClient("localhost", 27017);) {
-////            MongoDatabase db_task1 = client.getDatabase("db_task1");
-////            MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
-////            Document document = new Document();//        document.append("firstname" , "Sascha");
-////            document.append("firstname", record.firstname);//        document.append("lastname" , "Alda");
-////            document.append("lastname", record.lastname);//        document.append("id" , 90133);
-////            document.append("id", record.id);
-////            document.append("_id", record.id); //ToDo with this we can have only one ID per Person
-//////            System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
-////            salesmen.insertOne(document);
-//
-//        }
+        try (MongoClient client = new MongoClient("localhost", 27017);) {
+            MongoDatabase db_task1 = client.getDatabase("db_task1");
+            MongoCollection<Document> salesmen = db_task1.getCollection("SalesMen");
+            Document document = new Document();//        document.append("firstname" , "Sascha");
+            document.append("firstname", record.firstname);//        document.append("lastname" , "Alda");
+            document.append("lastname", record.lastname);//        document.append("id" , 90133);
+            document.append("id", record.id);
+            document.append("_id", record.id); //ToDo with this we can have only one ID per Person
+//            System.out.println("document = " + document);//        db_task1.getCollection("sale")(document);
+            salesmen.insertOne(document);
+
+        }
     }
 
     public void _dropAllSalesMan() {
