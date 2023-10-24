@@ -54,11 +54,12 @@ class RoundTripTest {
     @Test
     void roundTripTest() {
         ManagePersonalImpl managePersonal = new ManagePersonalImpl();
+        managePersonal._dropAllSalesMan();
 
         SalesMan salesMan = new SalesMan("Dominik", "Ocsofszki", 90133);
         //---------------
 
-        final SocialAttribute socialAttribute = new SocialAttribute("Leadership Competence", 4, 3, 20, "whats wrong?");
+        /*final SocialAttribute socialAttribute = new SocialAttribute("Leadership Competence", 4, 3, 20, "whats wrong?");
         final SocialAttribute socialAttribute2 = new SocialAttribute("Openness to Employee", 4, 3, 20, "whats wrong?");
         final ArrayList<SocialAttribute> socialAttributes = new ArrayList();
         socialAttributes.add(socialAttribute);
@@ -70,17 +71,21 @@ class RoundTripTest {
         orders.add(order1);
         orders.add(order2);
         final OrderEvaluation orderEvaluation = new OrderEvaluation(orders, 1_000);
-        final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);
-        managePersonal._dropAllSalesMan();
+//        final EvaluationRecord evaluationRecord = new EvaluationRecord(socialPerfomanceRecord, orderEvaluation, 1, 3_000, 2023);*/
         //------------
-        managePersonal.createSalesMan(salesMan);
         SalesMan salesMan1 = managePersonal.readSalesMan(90133);
-        assertEquals(90133, salesMan1.id);
+        //check before
+        assertNull(salesMan1);
+        managePersonal.createSalesMan(salesMan);
+        //create
+         salesMan1 = managePersonal.readSalesMan(90133);
+        //Check if inserted
+         assertEquals(90133, salesMan1.id);
+        //delete
         managePersonal.deleteSalesMan(90133);
         salesMan1 = managePersonal.readSalesMan(90133);
-
+        //Check if deleted
         assertNull(salesMan1);
-
         managePersonal._dropAllSalesMan();
 
     }
