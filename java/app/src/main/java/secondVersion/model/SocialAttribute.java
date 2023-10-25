@@ -1,4 +1,4 @@
-package task;
+package secondVersion.model;
 
 public class SocialAttribute {
     final String comment;
@@ -13,5 +13,16 @@ public class SocialAttribute {
         this.actualValue = actualValue;
         this.socialAttributeName = socialAttributeName;
         this.bonus = bonus;
+    }
+
+    @Override
+    public String toString() {
+        return "SocialAttribute{" +
+                "comment='" + comment + '\'' +
+                ", targetValue=" + targetValue +
+                ", actualValue=" + actualValue +
+                ", socialAttributeName='" + socialAttributeName + '\'' +
+                ", bonus=" + bonus +
+                '}';
     }
 }

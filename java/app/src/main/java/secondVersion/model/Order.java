@@ -1,4 +1,4 @@
-package task;
+package secondVersion.model;
 
 public class Order {
     final String productName;
@@ -17,5 +17,16 @@ public class Order {
         this.comment = comment;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "productName='" + productName + '\'' +
+                ", client='" + client + '\'' +
+                ", clientRanking='" + clientRanking + '\'' +
+                ", bonus=" + bonus +
+                ", itemAmount=" + itemAmount +
+                ", comment='" + comment + '\'' +
+                "}";
+    }
 }
 
