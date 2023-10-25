@@ -8,7 +8,8 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("asd");
+		System.out.println("THIS SHould be visible at the end of the run commant");
+		System.out.println("run mvn package, mvn exec:java");
 	}
 
 }
