@@ -1,4 +1,7 @@
-package task;
+package de.hbrs.erasmux.task;
+
+import de.hbrs.erasmux.ManagePersonal;
+import de.hbrs.erasmux.model.SalesMan;
 
 import java.util.List;
 import java.util.Scanner;
