@@ -1,9 +1,9 @@
 package task;
 
+import de.hbrs.erasmux.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import secondVersion.ManagePersonalImpl;
-import secondVersion.model.*;
+import de.hbrs.erasmux.ManagePersonalImpl;
 
 import java.util.ArrayList;
 import java.util.List;

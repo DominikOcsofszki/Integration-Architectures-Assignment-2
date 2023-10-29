@@ -2,8 +2,8 @@ package task;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import secondVersion.model.SalesMan;
-import secondVersion.ManagePersonalImpl;
+import de.hbrs.erasmux.model.SalesMan;
+import de.hbrs.erasmux.ManagePersonalImpl;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;

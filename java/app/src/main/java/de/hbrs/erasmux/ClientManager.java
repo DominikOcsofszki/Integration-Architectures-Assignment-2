@@ -1,4 +1,4 @@
-package secondVersion;
+package de.hbrs.erasmux;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;

@@ -1,4 +1,4 @@
-package secondVersion.model;
+package de.hbrs.erasmux.model;
 
 public class BonusComputationSheet {
     public final SocialPerfomanceRecord socialPerfomanceRecord;

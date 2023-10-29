@@ -1,5 +1,7 @@
-import secondVersion.ManagePersonalImpl;
-import task.ManagePersonalUI;
+package de.hbrs.erasmux;
+
+import de.hbrs.erasmux.ManagePersonalImpl;
+import de.hbrs.erasmux.task.ManagePersonalUI;
 
 public class Main {
     public static void main(String[] args) {

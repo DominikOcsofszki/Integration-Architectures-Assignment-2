@@ -1,6 +1,6 @@
-package secondVersion;
+package de.hbrs.erasmux;
 
-import secondVersion.model.SalesMan;
+import de.hbrs.erasmux.model.SalesMan;
 
 import java.util.List;
 

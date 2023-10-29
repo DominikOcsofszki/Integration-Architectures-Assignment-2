@@ -1,15 +1,12 @@
-package secondVersion;
+package de.hbrs.erasmux;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import de.hbrs.erasmux.model.BonusComputationSheet;
+import de.hbrs.erasmux.model.SalesMan;
 import org.bson.Document;
-import secondVersion.model.BonusComputationSheet;
-import secondVersion.model.SalesMan;
-import secondVersion.model.SocialPerfomanceRecord;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +14,6 @@ import java.util.List;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
-import static java.lang.System.out;
 
 public class ManagePersonalImpl implements ManagePersonal, ManageRecords {
 

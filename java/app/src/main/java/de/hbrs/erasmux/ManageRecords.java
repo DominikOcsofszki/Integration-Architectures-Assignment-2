@@ -1,9 +1,6 @@
-package secondVersion;
+package de.hbrs.erasmux;
 
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
-import secondVersion.model.BonusComputationSheet;
-import secondVersion.model.SocialPerfomanceRecord;
+import de.hbrs.erasmux.model.BonusComputationSheet;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;

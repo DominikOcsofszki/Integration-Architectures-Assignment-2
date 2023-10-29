@@ -1,6 +1,4 @@
-package secondVersion.model;
-
-import secondVersion.model.SocialAttribute;
+package de.hbrs.erasmux.model;
 
 import java.util.List;
 
