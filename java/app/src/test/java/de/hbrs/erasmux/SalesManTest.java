@@ -1,4 +1,4 @@
-package task;
+package de.hbrs.erasmux;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
