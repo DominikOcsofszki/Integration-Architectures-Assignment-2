@@ -22,7 +22,7 @@ public class SalesmenController {
     @PostMapping("api/salesmen/create")
     public ResponseEntity<String> createSalesman(@RequestBody SalesMan salesman){
         managePersonal.createSalesMan(salesman);
-        return ResponseEntity.ok("Salesman created");
+        return ResponseEntity.status(201).body("Salesman created");
     }
 
     /**
@@ -33,7 +33,7 @@ public class SalesmenController {
     @GetMapping("api/salesmen/read/{sid}")
     public ResponseEntity<SalesMan> readSalesman(@PathVariable int sid){
         SalesMan salesMan = managePersonal.readSalesMan(sid);
-        return salesMan != null ? ResponseEntity.ok(salesMan) : ResponseEntity.notFound().build();
+        return ResponseEntity.ok(salesMan);
     }
 
     /**
@@ -42,10 +42,9 @@ public class SalesmenController {
      * @param updatedSalesman JSON-Object that represents updated salesman
      * @return HTTP-Response including response string
      */
-    @PutMapping("api/salesmen/update/{sid}")
-    public ResponseEntity<String> updateSalesman(@PathVariable int sid, @RequestBody SalesMan updatedSalesman){
-        managePersonal.updateSalesMan(sid, updatedSalesman);
-        // Todo updatedSalesman needs to have some exception handling to provide appropriate response in api
+    @PutMapping("api/salesmen/update")
+    public ResponseEntity<String> updateSalesman(@RequestBody SalesMan updatedSalesman){
+        managePersonal.updateSalesMan(updatedSalesman);
         return ResponseEntity.ok("Salesman updated");
     }
 
@@ -57,7 +56,12 @@ public class SalesmenController {
     @DeleteMapping("api/salesmen/delete/{sid}")
     public ResponseEntity<String> deleteSalesman(@PathVariable int sid){
         managePersonal.deleteSalesMan(sid);
-        // Todo deleteSalesman needs to have some exception handling to provide appropriate response in api
         return ResponseEntity.ok("Salesman deleted");
     }
+
+    @ExceptionHandler
+    private ResponseEntity<String> handleReadException(IllegalArgumentException e){
+        return ResponseEntity.status(400).body(e.getMessage());
+    }
+
 }
