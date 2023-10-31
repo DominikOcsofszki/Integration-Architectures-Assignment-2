@@ -38,7 +38,6 @@ public class SalesmenController {
 
     /**
      * PUT-Method for updating an existing salesman
-     * @param sid id of salesman that should be updated
      * @param updatedSalesman JSON-Object that represents updated salesman
      * @return HTTP-Response including response string
      */
