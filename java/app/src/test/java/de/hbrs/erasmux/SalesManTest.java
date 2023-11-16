@@ -19,7 +19,7 @@ public class SalesManTest {
         SalesMan firstChanged = new SalesMan("Simon", "Bier", 21);
         managePersonal.createSalesMan(first);
         assertEquals(first, managePersonal.readSalesMan(21));
-        managePersonal.updateSalesMan(21, firstChanged);
+        managePersonal.updateSalesMan(firstChanged);
         assertEquals(firstChanged, managePersonal.readSalesMan(21));
         managePersonal.deleteSalesMan(21);
         assertEquals(null, managePersonal.readSalesMan(21));

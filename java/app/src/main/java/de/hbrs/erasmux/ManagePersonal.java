@@ -14,7 +14,7 @@ public interface ManagePersonal {
 
     public List<SalesMan> querySalesMan(String attribute , String key );
 
-    public void updateSalesMan( int sid, SalesMan updatedSalesMan );
+    public void updateSalesMan( SalesMan updatedSalesMan );
 
     public void deleteSalesMan( int sid );
 

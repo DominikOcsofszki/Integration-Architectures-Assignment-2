@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import de.hbrs.erasmux.model.BonusComputationSheet;
 import de.hbrs.erasmux.model.SalesMan;
 import org.bson.Document;
@@ -22,9 +24,31 @@ public class ManagePersonalImpl implements ManagePersonal, ManageRecords {
     //Salesman
 
     @Override
-    public void createSalesMan(SalesMan salesMan) {
+    public void createSalesMan(SalesMan salesMan){
+        checkSalesman(salesMan);
         MongoCollection<Document> salesmen = client.getSalesManCollection();
         salesmen.insertOne(objectToDocument(salesMan,SalesMan.class));
+    }
+
+    private void checkSalesman(SalesMan salesMan){
+        if (salesMan.id == null){
+            throw new IllegalArgumentException("Salesman needs id");
+        }
+        if (isIdOccupied(salesMan.id)){
+            throw new IllegalArgumentException("Salesman with this id exists already");
+        }
+        if (salesMan.firstname == null){
+            throw new IllegalArgumentException("Salesman needs a firstname");
+        }
+        if (salesMan.lastname == null){
+            throw new IllegalArgumentException("Salesman needs a lastname");
+        }
+    }
+
+    private boolean isIdOccupied(int sid){
+        MongoCollection<Document> salesmen = client.getSalesManCollection();
+        Document document = salesmen.find(eq("id", sid)).first();
+        return document != null;
     }
 
     @Override
@@ -32,21 +56,27 @@ public class ManagePersonalImpl implements ManagePersonal, ManageRecords {
         MongoCollection<Document> salesmen = client.getSalesManCollection();
         Document document = salesmen.find(eq("id", sid)).first();
         if(document == null) {
-            return null;
+            throw new IllegalArgumentException("No salesman with this id");
         }
         return gson.fromJson(document.toJson(), SalesMan.class);
     }
 
     @Override
-    public void updateSalesMan(int sid, SalesMan updatedSalesMan) {
-        this.deleteSalesMan(sid);
-        this.createSalesMan(updatedSalesMan);
+    public void updateSalesMan(SalesMan updatedSalesMan) {
+        MongoCollection<Document> salesmen = client.getSalesManCollection();
+        UpdateResult result = salesmen.replaceOne((eq("id", updatedSalesMan.id)), objectToDocument(updatedSalesMan, SalesMan.class));
+        if (result.getModifiedCount() == 0){
+            throw new IllegalArgumentException("No salesman with this id");
+        }
     }
 
     @Override
     public void deleteSalesMan(int sid) {
         MongoCollection<Document> salesmen = client.getSalesManCollection();
-        salesmen.deleteOne(eq("id", sid));
+        DeleteResult result = salesmen.deleteOne(eq("id", sid));
+        if (result.getDeletedCount() == 0){
+            throw new IllegalArgumentException("Salesman with this id does not exist");
+        }
     }
 
     //Shows all SalesMan with a certain attribute

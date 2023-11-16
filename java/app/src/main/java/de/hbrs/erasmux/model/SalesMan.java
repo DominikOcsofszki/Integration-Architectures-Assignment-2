@@ -4,11 +4,11 @@ public class SalesMan {
 
     public final String firstname;
     public final String lastname;
-    public final int id;
+    public final Integer id;
 
 
 
-    public SalesMan(String firstname, String lastname, int id) {
+    public SalesMan(String firstname, String lastname, Integer id) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id;
