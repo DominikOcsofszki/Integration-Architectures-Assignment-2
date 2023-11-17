@@ -1,17 +1,17 @@
 
-const axios = require('axios');
+import axios from "axios";
+// const axios = require('axios');
 const baseUrl = 'https://sepp-crm.inf.h-brs.de/opencrx-rest-CRX';
 const credentials = {username: 'guest', password: 'guest',};
-const config = {
-    headers: {'Accept': 'application/json'},
-    auth: credentials,
-};
+const config = {headers: {'Accept': 'application/json'},auth: credentials,};
 
 async function getCustomer(accountNr) {
-    // const contacts = await axios.get(`${baseUrl}/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account/${accountNr}`, config);
-    const contacts = await axios.get(`https://sepp-crm.inf.h-brs.de/opencrx-rest-CRX/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account/9DXSJ5D62FBHLH2MA4T2TYJFL`, config);
-    const customer = contacts.data.objects;
-    console.log(customer)
+    // const regAccountNr =  await axios.get(`${baseUrl}/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account/${accountNr}`, config);
+    const regAccountNr =  await getAllAccounts();
+}
+async function getAllAccounts() {
+    const regAccountNr =  await axios.get(`${baseUrl}/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account/`, config);
+    return regAccountNr;
 }
 
 // getAllCustomers();

@@ -2,12 +2,14 @@ const express = require('express');
 const getTokenHRM = require("./_getTokkenHRM")
 
 const app = express();
-app.get( '/tokken' , (req , res) => {
-    res.send( "{\"tokken\" : " +getTokken()+" \"}" );
+app.get( '/tokken' , async (req , res) => {
+    tokken = await getTokken().then(tokken =>
+    res.send( "{\"tokken\" : " +tokken+" \"}" ));
 });
 app.listen(8080 , () => { console.log("Server läuft!");
 });
-function getTokken(){
-    tokken = getTokenHRM();
+async function  getTokken() {
+    tokken = await getTokenHRM();
     console.log(tokken);
+    return tokken;
 }
