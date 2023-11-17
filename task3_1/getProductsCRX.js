@@ -5,4 +5,6 @@ const credentials = {username: 'guest', password: 'guest',};
 const config = {headers: {'Accept': 'application/json'},auth: credentials,};
 const productUrl = `${baseUrl}/org.opencrx.kernel.product1/provider/CRX/segment/Standard/product/`;
 
-await axios.get(productUrl, config);
+const someProducts = await axios.get(productUrl, config);
+
+console.log(someProducts);
