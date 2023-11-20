@@ -3,7 +3,7 @@
 const pizzaObject = {
     namePizza : "Salami",
     baked : function() {
-        console.log(`${this.namePizza} baked (:pizzaObject)`);
+        console.log(`${this.namePizza} baked [pizzaObject])`);
     },
 }
 

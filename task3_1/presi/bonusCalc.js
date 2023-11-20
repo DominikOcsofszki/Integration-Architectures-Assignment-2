@@ -20,17 +20,7 @@ function socialPerformanceBonus(targetValue,actualValue){
     return objectMap[actualValue - targetValue];
 }
 
-function orderEvaluationBonus(clientRanking, price, nrOfItems) {
-    return ((price*nrOfItems)/10) * (1 + (5-clientRanking)/10);
-}
 
-function orderEvaluationBonusSum(arrOfsingleBonus) {
-    let sum = 0;
-    for(const singleBonus of arrOfsingleBonus) {
-        sum += orderEvaluationBonus(...arrOfsingleBonus);
-    }
-    return sum;
-}
 
 function socialPerformanceBonusSum(arrOfSocialPerformanceBonus) {
     let sum = 0;
@@ -45,4 +35,28 @@ console.log(socialPerformanceBonusSum([[5,4], [5,5]]));
 console.log(socialPerformanceBonus(5,4));
 console.log(socialPerformanceBonus(5,5));
 
-console.log(orderEvaluationBonus([[1,1000,20]]))
+console.log(orderEvaluationBonusSum([[1,1000,20]]))
+console.log("---------");
+console.log(totalBonus(
+    [[5,4], [5,5]],
+    [[1,1000,20]]));
+function orderEvaluationBonus(clientRanking, price, nrOfItems) {
+    // console.log(clientRanking, price, nrOfItems);
+    // console.log(clientRanking);
+    return ((price*nrOfItems)/10) * (1 + (5-clientRanking)/10);
+}
+
+function orderEvaluationBonusSum(arrOfsingleBonus) {
+    let sum = 0;
+    for(const singleBonus of arrOfsingleBonus) {
+        sum += orderEvaluationBonus(...singleBonus);
+    }
+    return sum;
+}
+
+function totalBonus(listOfOrderEvaluation, listOfSocialPerformanceEvaluation) {
+    console.log(listOfOrderEvaluation);
+    console.log(orderEvaluationBonusSum(listOfOrderEvaluation));
+    console.log(socialPerformanceBonusSum(listOfSocialPerformanceEvaluation));
+
+}

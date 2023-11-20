@@ -14,6 +14,16 @@ class Pizza{
 Pizza.prototype.callback = (text) => console.log(`${text}`);
 Pizza.prototype.callbackHandlerTimeout = (callbackInput,text, time) => setTimeout(() => callbackInput(text), time);
 
+function callback(text) { 
+  console.log(`${text}`)
+};
+function callbackHandlerTimeout(callbackInput,text, time) {
+  setTimeout(() => callbackInput(text), time);
+}
+
+
+
 const pizza = new Pizza("Salami");
 
 pizza.bakingPizza();
+callbackHandlerTimeout(console.log,"pizza arrived![outside class]", 3000)

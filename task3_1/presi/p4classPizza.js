@@ -13,8 +13,10 @@ class Pizza{
 Pizza.prototype.burned = function() {
   console.log(`${this.namePizza} Pizza is burned [prototype added function]`);
 }
+Pizza.prototype.addedVar = "someString, added by [prototype added var]"
 
 
 const pizza = new Pizza("Salami");
 pizza.baked();
 pizza.burned();
+console.log(pizza.addedVar);

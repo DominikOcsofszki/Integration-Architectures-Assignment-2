@@ -1,30 +1,31 @@
 import {MongoClient} from 'mongodb'
 import { config } from 'dotenv';
-// require('dotenv').config();
+import { SalesMen } from './SalesMen';
+// require('./SalesMen');
 config();
 
-async function listDatabases(client){
-    const databasesList = await client.db().admin().listDatabases();
-    console.log("Databases:");
-    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
-
-async function connectDB() {
+export async function connectGetCollectionFromDB(dbName, collectionName,id) {
+    console.log("inside connectGetCollectionFromDB");
     const uri = `${process.env.DB_URL}`;
     const client = new MongoClient(uri);
+    const querry = ` "_id" : ${id} `;
+
     try {
         await client.connect();
-        const db = client.db('db_task1');
-        const collection = db.collection('salesmen');
-
-        const documentSalesmen = {
-            firstName: "roblox",
-            lastName:"asd",
-            email:"do@mail.com"
-        }
-        await collection.insertOne(documentSalesmen);
-        console.log(`added document: ${documentSalesmen}`)
-    } catch (e) {console.error(e);}finally {await client.close();}
+        const db =  await client.db(`${dbName}`);
+        const collection =  await db.collection(`${collectionName}`);
+        // const salesmenFromCollection =  await collection.find({querry});
+        const salesmenFromCollection =  await collection.find({});
+        const arrSalesmen =  await salesmenFromCollection.toArray();
+        // console.log(arrSalesmen[0][0]);
+        const salesmen = new SalesMen(arrSalesmen[id]._id,arrSalesmen[id].firstName, arrSalesmen[id].lastName, arrSalesmen[id].email);
+        console.log(salesmen);
+        console.log("inside connectGetCollectionFromDB");
+        return salesmen;
+        // return arr;
+    } catch (e) {console.error(e);}
+    finally {await client.close();}
     }
 
-connectDB().catch(console.error);
+
+// connectGetCollectionFromDB("db_task1","salesmen",0);
