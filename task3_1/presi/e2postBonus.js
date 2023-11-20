@@ -12,5 +12,5 @@ app.post('/setBonus', function(req, res) {
 });
 
 app.listen(8080);
-console.log("listen:")
-console.log("localhost:8080/setBonus")
+console.log("listen:");
+console.log("localhost:8080/setBonus");

@@ -15,7 +15,5 @@ Pizza.prototype.burned = function() {
 }
 
 const pizza = new Pizza("Salami");
-// const pizza2 = new Pizza("Margherita");
 pizza.baked();
 pizza.burned();
-// pizza2.baked();

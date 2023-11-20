@@ -5,7 +5,7 @@ const app = express();
 app.get( '/getsalesmen/:id' , (req , res) => {
     const id = req.params.id;
     console.log("The submitted ID is: " + id );
-    getBonus(id).then( bonus => res.send( "{\"id\" : " + id + ", \"Bonus\": \""+bonus+" Euro\"}" ))});
+    getBonus(id).then( salesmen => res.send( "{\"id\" : " + id + ", \"Bonus\": \""+salesmen+" Euro\"}" ))});
 app.listen(8080 , () => { console.log("Server läuft!");
 });
 
