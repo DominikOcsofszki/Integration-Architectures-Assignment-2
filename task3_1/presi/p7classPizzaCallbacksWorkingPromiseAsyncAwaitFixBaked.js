@@ -6,8 +6,6 @@ class Pizza{
     this.baked = function() {
         console.log(`${this.namePizza} Pizza baked [constructor:baked function]`);
       };
-
-      //Promise besser erklären
     this.delayedText = function (text, time) {
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -17,16 +15,16 @@ class Pizza{
       });
     };
 
-    this.bakingPizza = function() {
-      console.log("bakingPizza:");
-
-      this.delayedText("shopping!", 4000).then(
-      this.delayedText("cutting!", 3000)).then(
-      this.delayedText("baking!", 2000)).then(
-      setTimeout(() => this.baked(), 3000)).then(
-      console.log("All DONE![Still not CORRECT order]")).catch((error)=> console.log())
+    this.bakingPizza = async function() {
+      console.log("bakingPizza:")
+      await this.delayedText("shopping!", 4000);
+      await this.delayedText("cutting!", 3000);
+      await this.delayedText("baking!", 2000);
+      await setTimeout(() => this.baked(), 3000);
+      // await console.log("All DONE![wrong order]");
+      await console.log("All DONE![Still not CORRECT order]");
     }
-}
+    }
 }
 Pizza.prototype.delayedText = function(text, time) {
   setTimeout(() => console.log(`${text}`), time);

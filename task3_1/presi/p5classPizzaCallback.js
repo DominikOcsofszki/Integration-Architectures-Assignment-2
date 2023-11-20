@@ -15,4 +15,5 @@ class Pizza{
 }
 
 const pizza = new Pizza("Salami");
+
 pizza.orderPizza();

@@ -6,21 +6,23 @@ class Pizza{
     this.baked = function() {
         console.log(`${this.namePizza} Pizza baked [constructor:baked function]`);
       };
-      this.delay = function(t, val) {
-        return new Promise(resolve => setTimeout(resolve, t, val));
+    this.delayedText = function(text, time) {
+      setTimeout(() => console.log(`${text}`), time);
     }
+
     this.bakingPizza = function() {
       console.log("bakingPizza:")
-      this.delay(() => console.log("shopping!"), 5000);
-
-      this.delay(() => console.log("shopping!"), 5000);
-      this.delay(() => console.log("cutting!"), 3000);
-      this.delay(() => console.log("baking!"), 2000);
-      this.delay(() => this.baked(), 3000);
+      
+      this.delayedText("shopping!", 4000);
+      this.delayedText("cutting!", 3000);
+      this.delayedText("baking!", 2000);
+      setTimeout(() => this.baked(), 3000);
       console.log("All DONE![wrong order]");
     }
-
     }
+}
+Pizza.prototype.delayedText = function(text, time) {
+  setTimeout(() => console.log(`${text}`), time);
 }
 
 const pizza = new Pizza("Salami");
