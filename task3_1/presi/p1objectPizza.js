@@ -1,3 +1,4 @@
+
 // Producing one Object
 const pizzaObject = {
     namePizza : "Salami",
@@ -7,3 +8,4 @@ const pizzaObject = {
 }
 
 pizzaObject.baked();
+//Wechsel von java to js erwähnen erklären

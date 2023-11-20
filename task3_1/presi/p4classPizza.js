@@ -14,6 +14,7 @@ Pizza.prototype.burned = function() {
   console.log(`${this.namePizza} Pizza is burned [prototype added function]`);
 }
 
+
 const pizza = new Pizza("Salami");
 pizza.baked();
 pizza.burned();
