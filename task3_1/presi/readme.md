@@ -1,3 +1,4 @@
+<!-- 
 ```js
 // Producing one Object
 const pizzaObject = {
@@ -8,4 +9,4 @@ const pizzaObject = {
 }
 
 pizzaObject.baked();
-```
+``` -->

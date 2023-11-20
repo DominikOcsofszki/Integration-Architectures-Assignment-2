@@ -8,7 +8,6 @@ class Pizza{
       console.log(`Ordering pizza: ${this.namePizza}`);
       this.callbackHandlerTimeout(console.log,"pizza arrived!", 3000)
       console.log('Waiting for pizza, doing sth else');
-      this.callbackHandlerTimeout(this.baked,"",0)
     }
     }
 }
