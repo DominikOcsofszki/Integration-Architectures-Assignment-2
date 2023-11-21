@@ -3,7 +3,7 @@
 class Pizza{
   constructor(namePizza) {
     this.namePizza = namePizza;
-    
+
     this.baked = () => console.log(`${this.namePizza} Pizza baked [constructor:baked function]`);
     this.baking = () => console.log("baking");
     this.eating = () => console.log("eating");
