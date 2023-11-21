@@ -5,12 +5,15 @@ const app = express();
 app.get( '/getsalesmen/:id' , (req , res) => {
     const id = req.params.id;
     console.log("The submitted ID is: " + id );
-    getBonus(id).then( salesmen => res.send( "{\"id\" : " + id + ", \"Bonus\": \""+salesmen+" Euro\"}" ))});
+    getSalesmen(id).then(
+        salesmen => res.send( "{\"id\" : " + id + ", \"Salesmen\": \""+salesmen+"\"}" ))
+    });
 app.listen(8080 , () => { console.log("Server läuft!");
 });
 
-async function getBonus(id){
-    const salesmen = await connectGetCollectionFromDB("db_task1","salesmen",id);
+async function getSalesmen(id){
+    const salesmen = "id:1, firstName: Telekom, lastName: asd, email:do@mail.com";
+    // const salesmen = await connectGetCollectionFromDB("db_task1","salesmen",id);
     return salesmen.toString();
 }
 console.log("e.g.");

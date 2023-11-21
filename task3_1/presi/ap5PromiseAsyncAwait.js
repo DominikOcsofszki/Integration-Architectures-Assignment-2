@@ -11,27 +11,22 @@ function callback(text) {
 // callbackHandlerTimeout(console.log,"2. item", 1000);
 // console.log("3. item");
 
-// // //
-// // function callbackInputPromise(text) {
-// //   console.log(`${text}`);
-// // };
 function callbackHandlerTimeoutPromise(callbackInput,text, time) {
   return new Promise((resolve, reject) => {
     // if(cond) reject();
-    // throw new Error('"Error inside handler"');
   setTimeout(() => {
     callbackInput(text);
     resolve();
   }, time);
   });
 }
-function onError(x) {
-  console.log(`Error: "${x}" is catched`);
+function onError() {
+  console.log("Error is catched");
 }
-// callbackHandlerTimeoutPromise(console.log,"1. item", 3000);
-// callbackHandlerTimeoutPromise(console.log,"2. item", 1000);
-// console.log("3. item");
-
-callbackHandlerTimeoutPromise(console.log,"1. item", 3000).then(() =>
-callbackHandlerTimeoutPromise(console.log,"2. item", 1000)).then(() =>
-console.log("3. item")).catch(onError);
+//async/await
+async function asyncFunction(){
+  await callbackHandlerTimeoutPromise(console.log,"1. item", 3000);
+  await callbackHandlerTimeoutPromise(console.log,"2. item", 1000);
+  await console.log("3. item");
+}
+asyncFunction();

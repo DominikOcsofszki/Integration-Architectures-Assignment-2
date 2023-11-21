@@ -1,7 +1,4 @@
 
-
-
-
 function socialPerformanceBonus(targetValue,actualValue){
     const objectMap = {
         "-5":0,
@@ -16,7 +13,6 @@ function socialPerformanceBonus(targetValue,actualValue){
         "4":150,
         "5":150,
     }
-    // const diff = actualValue - targetValue
     return objectMap[actualValue - targetValue];
 }
 
@@ -41,8 +37,6 @@ console.log(totalBonus(
     [[5,4], [5,5]],
     [[1,1000,20]]));
 function orderEvaluationBonus(clientRanking, price, nrOfItems) {
-    // console.log(clientRanking, price, nrOfItems);
-    // console.log(clientRanking);
     return ((price*nrOfItems)/10) * (1 + (5-clientRanking)/10);
 }
 
@@ -55,8 +49,9 @@ function orderEvaluationBonusSum(arrOfsingleBonus) {
 }
 
 function totalBonus(listOfOrderEvaluation, listOfSocialPerformanceEvaluation) {
-    console.log(listOfOrderEvaluation);
-    console.log(orderEvaluationBonusSum(listOfOrderEvaluation));
-    console.log(socialPerformanceBonusSum(listOfSocialPerformanceEvaluation));
-
+    return orderEvaluationBonusSum(listOfOrderEvaluation) + 
+    socialPerformanceBonusSum(listOfSocialPerformanceEvaluation)
+    // console.log(listOfOrderEvaluation);
+    // console.log(orderEvaluationBonusSum(listOfOrderEvaluation));
+    // console.log(socialPerformanceBonusSum(listOfSocialPerformanceEvaluation));
 }
