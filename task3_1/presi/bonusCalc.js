@@ -26,10 +26,9 @@ function socialPerformanceBonusSum(arrOfSocialPerformanceBonus) {
     return sum;
 }
 
-console.log(socialPerformanceBonusSum([[5,4], [5,5]]));
-// console.log(orderEvaluationBonusSum())
 console.log(socialPerformanceBonus(5,4));
 console.log(socialPerformanceBonus(5,5));
+console.log(socialPerformanceBonusSum([[5,4], [5,5]]));
 
 console.log(orderEvaluationBonusSum([[1,1000,20]]))
 console.log("---------");
